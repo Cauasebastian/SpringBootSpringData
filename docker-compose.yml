@@ -10,8 +10,9 @@ services:
     depends_on:
       - postgres
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/produto_db
-      SPRING_DATASOURCE_USERNAME: root
+      # Use PostgreSQL connection string
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/produto_db
+      SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: password
       SPRING_PROFILES_ACTIVE: dev
 
@@ -20,5 +21,6 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_ROOT_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
       POSTGRES_DB: produto_db

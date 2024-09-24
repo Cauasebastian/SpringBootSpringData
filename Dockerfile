@@ -11,9 +11,9 @@ FROM openjdk:17-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
-# Definindo as variáveis de ambiente
-ENV SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/produto_db
-ENV SPRING_DATASOURCE_USERNAME=root
+# Define PostgreSQL-related environment variables
+ENV SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/produto_db
+ENV SPRING_DATASOURCE_USERNAME=postgres
 ENV SPRING_DATASOURCE_PASSWORD=password
 ENV SPRING_PROFILES_ACTIVE=dev
 
